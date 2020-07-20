@@ -65,3 +65,4 @@ set undolevels=1000
 set wildignore=*.swp,*.bak,*.pyc
 set visualbell
 set noerrorbells
+set backspace=indent,eol,start
