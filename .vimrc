@@ -15,7 +15,7 @@ Plugin 'ycm-core/YouCompleteMe'
 " plugin on GitHub repo
 Plugin 'vim-syntastic/syntastic'
 Plugin 'nvie/vim-flake8'
-
+Plugin 'powerline/powerline-fonts'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
@@ -40,29 +40,54 @@ filetype plugin indent on    " required
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
 
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 "  " unicode symbols
-let g:airline_powerline_fonts = 1
-let g:airline_theme='powerlineish'
-" let clangd fully control code completion
-let g:ycm_use_clangd = 1
-let g:ycm_clangd_binary_path = '/home/aria/Softwares/clangd_10.0.0/bin/clangd'
+ let g:airline_powerline_fonts = 1
+ let g:airline_theme='powerlineish'
+ let g:ycm_use_clangd = 1
+ let g:ycm_clangd_binary_path = '/home/aria/Softwares/clangd_10.0.0/bin/clangd'
 
-let g:ycm_clangd_uses_ycmd_caching = 0
+" let clangd fully control code completion
+ let g:ycm_clangd_uses_ycmd_caching = 0
 " Use installed clangd, not YCM-bundled clangd which doesn't get updates.
-let g:ycm_clangd_binary_path = exepath("/home/aria/Downloads/clangd_10.0.0/bin/clangd")
-let g:ycm_show_diagnostics_ui = 0
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
-syntax on
-set number
-set showmatch
-set history=1000
-set undolevels=1000
-set wildignore=*.swp,*.bak,*.pyc
-set visualbell
-set noerrorbells
-set backspace=indent,eol,start
+ let g:ycm_show_diagnostics_ui = 0
+ let g:ycm_autoclose_preview_window_after_completion=1
+ map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+ syntax on
+ set number
+ set showmatch
+ set history=1000
+ set undolevels=1000
+ set wildignore=*.swp,*.bak,*.pyc
+ set visualbell
+ set noerrorbells
+ set backspace=indent,eol,start
+ if !exists('g:airline_symbols')
+	     let g:airline_symbols = {}
+     endif
+
+     " unicode symbols
+      let g:airline_left_sep = '»'
+      let g:airline_left_sep = '▶'
+      let g:airline_right_sep = '«'
+      let g:airline_right_sep = '◀'
+      let g:airline_symbols.linenr = '␊'
+      let g:airline_symbols.linenr = '␤'
+      let g:airline_symbols.linenr = '¶'
+      let g:airline_symbols.branch = '⎇'
+      let g:airline_symbols.paste = 'ρ'
+      let g:airline_symbols.paste = 'Þ'
+      let g:airline_symbols.paste = '∥'
+      let g:airline_symbols.whitespace = 'Ξ'
+     
+     " airline symbols
+      let g:airline_left_sep = ''
+      let g:airline_left_alt_sep = ''
+      let g:airline_right_sep = ''
+      let g:airline_right_alt_sep = ''
+      let g:airline_symbols.branch = ''
+      let g:airline_symbols.readonly = ''
+      let g:airline_symbols.linenr = ''
+     
